@@ -1,0 +1,122 @@
+
+
+#pragma mark - CenterLayout
+
+- (XNLCommonButton *)createCenterLayoutButtonWithFrame:(CGRect)frame {
+
+XNLCommonButton *button = createViewWithFrame(XNLCommonButton, frame);
+button.backgroundColor = [UIColor redColor];
+button.spacing = @(10);
+[button ss_setTitleWithTextItem:SSTextAttrItem(@"哈哈", scaleFontSize(16), HEXCOLOR(0x000000))
+forState:UIControlStateNormal];
+[button ss_setIconWithImageItem:SSImageAttrItemWithName(@"tabbar_item_account_selected", nil, nil, nil)];
+
+return button;
+}
+
+- (void)testCenterLayoutButton {
+
+XNLCommonButton *button1 = [self createCenterLayoutButtonWithFrame:CGRectMake(50, 100, 100, 100)];
+[button1 setContentAlignType:XNLButtonContentAlignmentType_Center
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Horizontal_Title_Image];
+[self.view addSubview:button1];
+
+XNLCommonButton *button2 = [self createCenterLayoutButtonWithFrame:CGRectMake(200, 100, 100, 100)];
+[button2 setContentAlignType:XNLButtonContentAlignmentType_Center
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Horizontal_Image_Title];
+[self.view addSubview:button2];
+
+XNLCommonButton *button3 = [self createCenterLayoutButtonWithFrame:CGRectMake(50, 300, 100, 100)];
+[button3 setContentAlignType:XNLButtonContentAlignmentType_Center
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Vertical_Title_Image];
+[self.view addSubview:button3];
+
+XNLCommonButton *button4 = [self createCenterLayoutButtonWithFrame:CGRectMake(200, 300, 100, 100)];
+[button4 setContentAlignType:XNLButtonContentAlignmentType_Center
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Vertical_Image_Title];
+[self.view addSubview:button4];
+
+}
+
+
+#pragma mark - LinearLayout
+
+- (XNLCommonButton *)createLinearLayoutButtonWithFrame:(CGRect)frame {
+
+XNLCommonButton *button = createViewWithFrame(XNLCommonButton, frame);
+button.backgroundColor = [UIColor redColor];
+button.spacing = @(10);
+[button ss_setTitleWithTextItem:SSTextAttrItem(@"哈哈", scaleFontSize(16), HEXCOLOR(0x000000))
+forState:UIControlStateNormal];
+[button ss_setIconWithImageItem:SSImageAttrItemWithName(@"tabbar_item_account_selected", nil, nil, nil)];
+
+return button;
+}
+
+- (void)testLinearLayoutButton {
+
+XNLCommonButton *button1 = [self createCenterLayoutButtonWithFrame:CGRectMake(50, 100, 100, 100)];
+[button1 setContentAlignType:XNLButtonContentAlignmentType_Linear
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Horizontal_Title_Image];
+button1.titlePadding = @(20);
+[self.view addSubview:button1];
+
+XNLCommonButton *button2 = [self createCenterLayoutButtonWithFrame:CGRectMake(200, 100, 100, 100)];
+[button2 setContentAlignType:XNLButtonContentAlignmentType_Linear
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Horizontal_Image_Title];
+button2.imagePadding = @(20);
+[self.view addSubview:button2];
+
+XNLCommonButton *button3 = [self createCenterLayoutButtonWithFrame:CGRectMake(50, 300, 100, 100)];
+[button3 setContentAlignType:XNLButtonContentAlignmentType_Linear
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Vertical_Title_Image];
+button3.titlePadding = @(20);
+[self.view addSubview:button3];
+
+XNLCommonButton *button4 = [self createCenterLayoutButtonWithFrame:CGRectMake(200, 300, 100, 100)];
+[button4 setContentAlignType:XNLButtonContentAlignmentType_Linear
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Vertical_Image_Title];
+button4.imagePadding = @(20);
+[self.view addSubview:button4];
+
+}
+
+
+#pragma mark - AlignParentLayout
+
+- (XNLCommonButton *)createAlignParentLayoutButtonWithFrame:(CGRect)frame {
+
+XNLCommonButton *button = createViewWithFrame(XNLCommonButton, frame);
+button.backgroundColor = [UIColor redColor];
+button.titlePadding = @(5);
+button.imagePadding = @(5);
+[button ss_setTitleWithTextItem:SSTextAttrItem(@"哈哈", scaleFontSize(16), HEXCOLOR(0x000000))
+forState:UIControlStateNormal];
+[button ss_setIconWithImageItem:SSImageAttrItemWithName(@"tabbar_item_account_selected", nil, nil, nil)];
+
+return button;
+}
+
+- (void)testAlignParentLayoutButton {
+
+XNLCommonButton *button1 = [self createAlignParentLayoutButtonWithFrame:CGRectMake(50, 100, 100, 100)];
+[button1 setContentAlignType:XNLButtonContentAlignmentType_AlignParent
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Horizontal_Title_Image];
+[self.view addSubview:button1];
+
+XNLCommonButton *button2 = [self createAlignParentLayoutButtonWithFrame:CGRectMake(200, 100, 100, 100)];
+[button2 setContentAlignType:XNLButtonContentAlignmentType_AlignParent
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Horizontal_Image_Title];
+[self.view addSubview:button2];
+
+XNLCommonButton *button3 = [self createAlignParentLayoutButtonWithFrame:CGRectMake(50, 300, 100, 100)];
+[button3 setContentAlignType:XNLButtonContentAlignmentType_AlignParent
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Vertical_Title_Image];
+[self.view addSubview:button3];
+
+XNLCommonButton *button4 = [self createAlignParentLayoutButtonWithFrame:CGRectMake(200, 300, 100, 100)];
+[button4 setContentAlignType:XNLButtonContentAlignmentType_AlignParent
+subViewOrderType:XNLButtonSubViewAlignmentOrder_Vertical_Image_Title];
+[self.view addSubview:button4];
+
+}

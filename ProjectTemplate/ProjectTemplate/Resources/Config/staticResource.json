@@ -1,0 +1,54 @@
+{
+    "104": [
+            {
+            "resourcesType": 104,
+            "resourcesCode": 20,
+            "name": "XXX，你好，你在XXX公司的贷款已逾期XX天，当前逾期金额XXX元，请今天二十四点前安排还款。",
+            "url": "",
+            "skipUrl": ""
+            },
+            {
+            "resourcesType": 104,
+            "resourcesCode": 21,
+            "name": "XXX，你好，你在XXX公司的贷款已逾期 XX天，当前逾期金额XXX 元，请于今天二十四点前全部还清，以免影响到你的信用！",
+            "url": "",
+            "skipUrl": ""
+            }
+            ],
+    "103": [
+            {
+            "resourcesType": 103,
+            "resourcesCode": 103,
+            "name": "用户注册协议",
+            "url": "https://static.neo-fintech.com/backend/contract/register_contract.html",
+            "skipUrl": ""
+            }
+            ],
+    "102": [
+            {
+            "resourcesType": 102,
+            "resourcesCode": 102,
+            "name": "资金管理服务协议",
+            "url": "https://static.neo-fintech.com/backend/contract/funds_management_contract.html",
+            "skipUrl": ""
+            }
+            ],
+    "101": [
+            {
+            "resourcesType": 101,
+            "resourcesCode": 101,
+            "name": "委托催收协议",
+            "url": "https://static.neo-fintech.com/backend/contract/collection_contract.html",
+            "skipUrl": ""
+            }
+            ],
+    "100": [
+            {
+            "resourcesType": 100,
+            "resourcesCode": 100,
+            "name": "汇催banner",
+            "url": "https://static.neo-fintech.com/backend/banner/banner%403x.png",
+            "skipUrl": "https://static.neo-fintech.com/static-resource/index.html#/ac_newRegister"
+            }
+            ]
+}

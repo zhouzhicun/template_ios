@@ -1,0 +1,90 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - AspectsV1.4.2 (1.4.2)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BMKLocationKit (1.2.0)
+  - IQKeyboardManager (5.0.8)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.15.3)
+  - MSWeakTimer (1.1.0)
+  - PINCache (2.3)
+  - ReactiveObjC (3.0.0)
+  - SAMKeychain (1.5.3)
+  - SDWebImage (4.2.3):
+    - SDWebImage/Core (= 4.2.3)
+  - SDWebImage/Core (4.2.3)
+  - SGQRCode (2.2.0)
+  - TAPageControl (0.2.0)
+  - TTTAttributedLabel (2.0.0)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1.0)
+  - AspectsV1.4.2 (~> 1.4.2)
+  - BlocksKit (~> 2.2.5)
+  - BMKLocationKit (~> 1.2.0)
+  - IQKeyboardManager (~> 5.0.4)
+  - Masonry (~> 1.1.0)
+  - MBProgressHUD (~> 1.0.0)
+  - MJRefresh (~> 3.1.15)
+  - MSWeakTimer (~> 1.1.0)
+  - PINCache (~> 2.3)
+  - ReactiveObjC (= 3.0.0)
+  - SAMKeychain (~> 1.5.3)
+  - SDWebImage (~> 4.2.1)
+  - SGQRCode (~> 2.2.0)
+  - TAPageControl (~> 0.2.0)
+  - TTTAttributedLabel (~> 2.0.0)
+  - YYModel (~> 1.0.4)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AspectsV1.4.2: a8b168606776215f5ba4790b95ff315df336aca9
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  BMKLocationKit: 043a9eaf3767916a692708804324adcfe86e281d
+  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  MSWeakTimer: 9426150f933b80ed3acf3f6d228e4b61f0e303c8
+  PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
+  ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
+  SGQRCode: 6cd7f03ea6b74d1267820d427b07d1451b387c79
+  TAPageControl: fd11d779bbb5c2464ca2f55dde9e288213ea8a9b
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: 7050d24cca24151572242d44b1148c26ba9111c4
+
+COCOAPODS: 1.4.0

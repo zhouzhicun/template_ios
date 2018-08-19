@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <title>首页</title>
+            <style type="text/css">
+                {
+                    font-size: 40px;
+                }
+            </style>
+    </head>
+    <body>
+        
+        <div style="margin-top: 100px">
+            <h1>H5接口联调测试</h1><br/>
+            
+            <br/>
+            <div><input type="button" value="分享" onclick="share()"></div><br/>
+            <br/>
+
+            <br/>
+            <div><input type="button" value="拨打电话" onclick="call()"></div><br/>
+            <br/>
+            <div><input type="button" value="登陆" onclick="login()"></div><br/>
+            <br/>
+            <div><input type="button" value="缓存数据" onclick="cacheData()"></div><br/>
+
+            <br/>
+            <div><input type="button" value="读取缓存数据" onclick="getCacheData()"></div><br/>
+
+            <br/>
+            <div><input type="button" value="显示Loading" onclick="testShowLoading(10)"></div><br/>
+
+            <br/>
+            <div><input type="button" value="显示Toast" onclick="showToast('helloworld')"></div><br/>
+
+
+            <br/>
+            <div><input type="button" value="文档预览" onclick="browserFile()"></div><br/>
+            <br/>
+            <div><input type="button" value="操作日志管理" onclick="reportEvent()"></div><br/>
+            <br/>
+            <div><input type="button" value="用户名信息" onclick="getUserInfo()"></div><br/>
+            <br/>
+            <div><input type="button" value="手机号手机型号等信息" onclick="getDeviceInfo()"></div><br/>
+
+
+            <br/>
+            <div><input type="button" value="相机拍照" onclick="takePhoto()"></div><br/>
+
+            <br/>
+            <div><input type="button" value="相册中选择照片" onclick="pickerPhoto()"></div><br/>
+
+
+            <br/>
+            <div><input type="button" value="所有联系人" onclick="getAllContacts()"></div><br/>
+
+            <br/>
+            <div><input type="button" value="选择联系人" onclick="pickerContact()"></div><br/>
+
+            <br/>
+            <div><input type="button" value="扫描二维码" onclick="scan()"></div><br/>
+
+
+            <br/>
+            <div><input type="button" value="位置信息" onclick="getLocation()"></div><br/>
+
+
+
+        </div>
+        
+        <script type="text/javascript">
+
+            //分享
+            function share() {
+                var body = {
+                    func: 'share',
+                }
+                callNative(body)
+            }
+
+            //定位信息
+            function getLocation() {
+                var body = {
+                    func: 'getLocation',
+                    callback: 'getLocation_cb',
+                }
+                callNative(body)
+
+            }
+
+            function getLocation_cb(cb, data) {
+
+                <!--map.put("Latitude", curBDLocation.getLatitude() + "");-->
+                <!--map.put("Longitude", curBDLocation.getLongitude() + "");-->
+                <!--map.put("Province", curBDLocation.getProvince());-->
+                <!--map.put("City", curBDLocation.getCity());-->
+                <!--map.put("District", curBDLocation.getDistrict());-->
+                <!--map.put("Street", curBDLocation.getStreet());-->
+                <!--map.put("StreetNumber", curBDLocation.getStreetNumber());-->
+
+                addr = data['Province'] + " " + data['City'] + " " +
+                data['District'] + " " + data['Street'] + " " + data['StreetNumber']
+
+                console.log('addr = ' + addr)
+            }
+
+
+            //所有联系人
+            function scan() {
+                var body = {
+                    func: 'scan',
+                    callback: 'scan_cb',
+                }
+                callNative(body)
+
+            }
+
+            function scan_cb(cb, data) {
+
+                content = data['content']
+                showToast('content = ' + content)
+                
+            }
+
+
+            //所有联系人
+            function getAllContacts() {
+                var body = {
+                    func: 'getAllContacts',
+                    callback: 'getAllContacts_cb',
+                }
+                callNative(body)
+
+            }
+
+            function getAllContacts_cb(cb, data) {
+
+                list = data['list']
+                for (var i=0;i<list.length;i++) {
+                    contact = list[i]
+                    name = contact['name']
+                    phoneArr = contact['phoneArr']
+                    console.log('name = ' + name)
+                }
+            }
+
+
+                        //所有联系人
+            function pickerContact() {
+                var body = {
+                    func: 'pickerContact',
+                    callback: 'pickerContact_cb',
+                }
+                callNative(body)
+
+            }
+
+            function pickerContact_cb(cb, data) {
+
+                name = data['name']
+                phone = data['phone']
+            }
+
+
+
+
+
+            //拨打电话
+            function call() {
+
+                var body = {
+                    func: 'call',
+                    data: {
+                        phone: '13922498868',
+                    }
+                }
+                callNative(body)
+            }
+
+            //拍照
+            function takePhoto() {
+                var body = {
+                    func: 'takePhoto',
+                    callback: 'takePhoto_cb',
+                }
+                callNative(body)
+
+            }
+
+            function takePhoto_cb(cb, data) {
+
+
+               //数据，K-V
+                content ='data:image/bmp;base64,' + data['content']
+
+                var image = new Image()
+                image.src = content;
+                document.body.appendChild(image);
+
+            }
+
+            //选择照片
+            function pickerPhoto() {
+
+                var body = {
+                    func: 'pickerPhoto',
+                    callback:'pickerPhoto_cb',
+                }
+                callNative(body)
+            }
+
+            function pickerPhoto_cb(cb, data) {
+
+
+               //数据，K-V
+                content ='data:image/bmp;base64,' + data['content']
+                var image = new Image()
+                image.src = content;
+                document.body.appendChild(image);
+            }
+
+
+            //登陆， h5-->原生
+            function login() {
+                
+                var body = {
+                    func: 'login',
+                    callback: 'login_cb',
+                    data: {
+                        name: 'haha',
+                        age: '18',
+                    }
+                }
+
+                callNative(body)
+            }
+
+
+
+
+
+
+        
+            //登陆回调， 原生-->h5
+            function login_cb(cb, data) {
+
+               console.log("data=" + data);
+               
+               //模拟登陆成功
+               setTimeout( function(){
+                   loginResult()
+               }, 3000);
+               
+               
+            }
+
+            //登陆返回结果， h5-->原生
+            function loginResult() {
+
+               var body = {
+                    func: 'loginResult',
+                    data: {
+                        //其中 '0' 表示成功， 其他表示失败
+                        code: '0',
+                        msg: '密码错误',
+                    }
+                }
+
+                callNative(body)
+            }
+
+
+            function testShowLoading(count) {
+
+                showLoading('1')
+                setTimeout( function(){
+                    showLoading('0')
+                }, 3000);
+            }
+
+
+
+            function showLoading(flagValue) {
+
+                var body = {
+                    func: 'showLoading',
+                    data: {
+                        show: flagValue
+                    }
+                }
+                callNative(body)
+            }
+
+            function showToast(message) {
+
+                var body = {
+                    func: 'showToast',
+                    data: {
+                        msg: message
+                    }
+                }
+                callNative(body)
+            }
+
+
+
+        
+            //缓存数据
+            function cacheData() {
+
+                //数据，K-V
+                key = 'name'
+                value = 'jtOA'
+
+
+                var body = {
+                    func: 'cacheData',
+                    data: {
+                        key: key,
+                        value: value,
+                    }
+                }
+                callNative(body)
+            }
+
+            //读取缓存数据
+            function getCacheData() {
+
+                //数据，K-V
+                key = 'name'
+                var body = {
+                    func: 'getCacheData',
+                    callback: 'getCacheData_cb',
+                    data: {
+                        key: key
+                    }
+                }
+                callNative(body)
+            }
+
+            //读取缓存数据 callback
+            function getCacheData_cb(cb, data) {
+
+                //数据，K-V
+                key = data['key']
+                value = data['value']
+                console.log("data=" + data);
+            }
+
+            //预览文件
+            function browserFile() {
+                var body = {
+                    func: 'browserFile',
+                    data: {
+                        filename: 'HuiCuiBug.docx',
+                        url: 'http://10.17.2.163/static-resource/HuiCuiBug.docx',
+                    }
+                }
+                callNative(body)
+            }
+        
+            //日志上报
+            function reportEvent() {
+                
+                var body = {
+                    func: 'reportEvent',
+                    data: {
+                        eventId: '100000',
+                    }
+                }
+                callNative(body)
+            }
+        
+            //获取用户信息， h5-->原生
+            function getUserInfo() {
+                
+                var body = {
+                    func: 'getUserInfo',
+                    callback: 'getUserInfo_cb',
+                }
+                callNative(body)
+            }
+        
+            //获取用户信息回调, 原生-->h5
+            function getUserInfo_cb(cb, data) {
+                console.log("data=" + data);
+            }
+        
+        
+
+            //获取设备信息， h5-->原生
+            function getDeviceInfo() {
+                
+                var body = {
+                    func: 'getDeviceInfo',
+                    callback: 'getDeviceInfo_cb',
+                }
+                callNative(body)
+            }
+        
+            //获取设备信息回调, 原生-->h5
+            function getDeviceInfo_cb(cb, data) {
+                console.log("data=" + data);
+            }
+
+
+
+            //h5-->原生
+            function callNative(body) {
+
+                var u = navigator.userAgent;
+                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+                 if(isiOS) {
+
+                    //ios
+                    console.log("call ios native method");
+                    window.webkit.messageHandlers.dispatch.postMessage(body);
+
+                } else if(isAndroid) {
+
+                    //android
+                    console.log("call android native method");
+                    console.log(body)
+                    Android.dispatch(JSON.stringify(body));
+                }
+            }
+
+            //原生-->h5， dispatch总入口
+            function dispatch(body) {
+                
+                func = body['func']
+                cb = body['callback']
+                data = body['data']
+
+                console.log(func + "-" + data);
+                
+                if(func == 'login_cb') {
+                    login_cb(cb, data)
+                } else if (func == 'getCacheData_cb') {
+                    getCacheData_cb(cb, data)
+                } else if (func == 'getUserInfo_cb') {
+                    getUserInfo_cb(cb, data)
+                } else if (func == 'getDeviceInfo_cb') {
+                    getDeviceInfo_cb(cb, data)
+                } else if (func == 'takePhoto_cb') {
+                    takePhoto_cb(cb, data)
+                } else if (func == 'pickerPhoto_cb') {
+                    pickerPhoto_cb(cb, data)
+                } else if (func == 'getAllContacts_cb') {
+                    getAllContacts_cb(cb, data)
+                } else if (func == 'pickerContact_cb') {
+                    pickerContact_cb(cb, data)
+                } else if (func == 'scan_cb') {
+                    scan_cb(cb, data)
+                } else if (func == 'getLocation_cb') {
+                    getLocation_cb(cb, data)
+                }
+
+            }
+        
+        </script>
+    </body>
+</html>
